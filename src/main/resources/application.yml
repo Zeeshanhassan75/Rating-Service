@@ -5,17 +5,13 @@ spring:
   application:
     name: RATING-SERVICE
 
+  config:
+    import: "configserver:http://localhost:8092"
+
   data:
     mongodb:
       uri: mongodb://localhost:27017
       database: Z_Microservices
 
-eureka:
-  instance:
-    prefer-ip-address: true
-
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: http://localhost:8090/eureka
+  profiles:
+    active: test
